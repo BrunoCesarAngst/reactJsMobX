@@ -16,6 +16,7 @@ class TodoStore {
     );
   }
 
+  // A ideia é que, quando os dados mudam, o objeto observável notifica os observadores. Para definir uma propriedade como observável, tudo o que precisamos fazer é usar o @observable decorador
 @observable todos: Todo[] =[
   { id: uuidv4(), title: 'Item #1', completed: false },
   { id: uuidv4(), title: 'Item #2', completed: false },
@@ -54,4 +55,5 @@ class TodoStore {
 }
 }
 
+// O contexto fornece uma maneira de passar dados pela árvore de componentes sem ter que passar propriedades manualmente em todos os níveis
 export default createContext(new TodoStore())

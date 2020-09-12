@@ -5,6 +5,8 @@ import TodoStore from "../stores/TodoStore"
 
 const AddTodo = () => {
   const [title, setTitle] = useState("")
+
+  // useContext permite que você acesse as propriedades de contexto de qualquer lugar em seus componentes. 
   const todoStore = useContext(TodoStore)
   const { addTodo, info } = todoStore
 
@@ -51,4 +53,5 @@ const AddTodo = () => {
   )
 }
 
+// os componentes serão automaticamente renderizados novamente quando os observáveis ​​relevantes forem alterados. Mas também garante que os componentes não sejam renderizados novamente quando não houver relevantes mudanças
 export default observer(AddTodo)
