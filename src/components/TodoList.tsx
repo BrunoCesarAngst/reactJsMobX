@@ -45,4 +45,5 @@ const TodoList = () => {
 };
 
 export default observer(TodoList);
+// Ambos os componentes usam o observer que é um HOC para tornar os componentes observadores de nossa store. Portanto, qualquer alteração em qualquer um dos observáveis ​​fará com que os componentes React sejam renderizados novamente. 
 

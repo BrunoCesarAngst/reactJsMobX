@@ -10,6 +10,8 @@ export interface Todo {
 
 class TodoStore {
   constructor() {
+
+    // As reações rastreiam os observáveis ​​de dentro da própria store. No exemplo abaixo, se a ação a ser definida todos for chamada, ele executará o segundo argumento. 
     reaction(
       () => this.todos,
       _ => console.log(this.todos.length)
@@ -26,6 +28,7 @@ class TodoStore {
   { id: uuidv4(), title: 'Item #6', completed: false },
 ];
 
+// Ações são qualquer coisa que modifique o estado tornar explícito em seu código onde estão suas ações, marcando-as
 @action addTodo = (todo: Todo) => {
   this.todos.push({ ...todo, id: uuidv4() })
 }
@@ -42,10 +45,12 @@ class TodoStore {
   })
 }
 
+// Ação é uma forma de alterar um observável (atualizar o estado). Para definir uma ação, decoramos métodos dentro da loja com @action: 
 @action removeTodo = (id: string) => {
   this.todos = this.todos.filter(todo => todo.id !== id)
 }
 
+// são valores que podem ser derivados do estado existente ou de outros valores calculados, use @computed se quiser produzir reativamente um valor que pode ser usado por outros observadores
 @computed get info() {
   return {
     total: this.todos.length,

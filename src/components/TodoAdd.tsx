@@ -55,3 +55,4 @@ const AddTodo = () => {
 
 // os componentes serão automaticamente renderizados novamente quando os observáveis ​​relevantes forem alterados. Mas também garante que os componentes não sejam renderizados novamente quando não houver relevantes mudanças
 export default observer(AddTodo)
+// Ambos os componentes usam o observer que é um HOC para tornar os componentes observadores de nossa store. Portanto, qualquer alteração em qualquer um dos observáveis ​​fará com que os componentes React sejam renderizados novamente. 
